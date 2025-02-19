@@ -15,49 +15,51 @@
     - Build without icon:
         1. Delete the build script `build.rs`.
         2. Build with `cargo build -r`
+ 
+ I highly encourage building in the other platforms as those builds can be used in [OpenUtau.](https://github.com/stakira/OpenUtau) Build steps for Mac/Linux should be similar, just follow build without icon skipping step 1.
 # Flag Documentation
 Check flag documentation [here](flag_docs.md).
 
 An official resampler manifest file is now available for OpenUtau users [here.](https://raw.githubusercontent.com/UtaUtaUtau/straycat-rs/master/straycat-rs.yaml) Right click and select `Save as...`
 # Example Renders
- These renders use straycat-rs 1.0.10. No flags are used in these renders unless stated.
+ These renders use straycat-rs 1.1.0. No flags are used in these renders unless stated.
  
  **Voicebank**: 電圧空 -Halcyon- / Denatsu Sora -Halcyon- / VCV
-
-https://github.com/user-attachments/assets/13fa2f68-a735-41fe-8921-4432d064df44
+ 
+https://github.com/user-attachments/assets/4e9db61c-7b84-48f3-a558-458a9bd913aa
 
  **Voicebank**: 紅 通常 / Kurenai Normal / VCV
 
-https://github.com/user-attachments/assets/7fc60080-fe27-46a0-b1e5-ea54c84a9d7c
+https://github.com/user-attachments/assets/8ebd470a-17f3-4c15-9bbd-c3d3707edcf1
 
  **Voicebank**: 戯白メリー Highwire / Kohaku Merry Highwire / VCV
 
-https://github.com/user-attachments/assets/3b81d548-2e51-4a96-a25a-a062fd35094e
+https://github.com/user-attachments/assets/ec79b1f5-6e6b-4dfa-bb77-8e01ae8a7cdc
 
  **Voicebank**: 水音ラル float / Mine Laru float / VCV
 
-https://github.com/user-attachments/assets/c1c04873-4839-4adf-a6cf-fe82c4bcbe44
+https://github.com/user-attachments/assets/ba31dc4a-83e7-4683-8a70-922cec341bb1
 
  **Voicebank**: 吼音ブシ-武- / Quon Bushi -武- / VCV
 
-https://github.com/user-attachments/assets/04843cd9-51ac-49c4-82c0-dc8f4572f501
+https://github.com/user-attachments/assets/56ab2a27-0780-49ea-96fc-5f56f7838a0a
 
  **Voicebank**: 廻音シュウVer1.00 / Mawarine Shuu Ver1.00 / VCV
 
-https://github.com/user-attachments/assets/10ac2ad4-e78d-4533-b6db-b86653425602
+https://github.com/user-attachments/assets/08dcba09-e5d8-4ed6-a7a0-6a7d16bf1464
 
  **Voicebank**: Number Bronze・ate / CVVC
 
-https://github.com/user-attachments/assets/bf9169ca-7fb8-494e-850a-d03eab7fd3e9
+https://github.com/user-attachments/assets/01eb7cc6-d178-4f1d-910a-1fd312c0ee2d
 
  **Voicebank**: 学人デシマル χΩ / Gakuto Deshimaru Chi-Omega / CVVC
 
-https://github.com/user-attachments/assets/13d05c6b-296d-4a2d-9ce7-04a652cce51c
+https://github.com/user-attachments/assets/692a2533-5fc2-4da5-8c50-78216c0851eb
 
  **Voicebank**: CZloid / English VCCV / Uses P0p-1 for CCs
 
-https://github.com/user-attachments/assets/0fb6a861-b71d-4d40-b04a-d1d351379a15
-
+https://github.com/user-attachments/assets/bf226d88-5692-4e0b-bf22-58893e52ff51
+ 
 # Remarks
  This resampler will not be an exact copy of [straycat](https://github.com/UtaUtaUtau/straycat), but a variation of it. It may not do the exact same things as straycat, but my goal with this resampler is to match or surpass the quality of straycat.
 
