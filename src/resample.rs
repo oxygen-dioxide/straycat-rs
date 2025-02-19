@@ -54,21 +54,8 @@ pub fn run(args: ResamplerArgs) -> Result<()> {
     let volume = args.volume / 100.; // volume
     let modulation = args.modulation / 100.; // mod
 
-    println!("Decoding WORLD features.");
-
     let feature_length = features.f0.len();
     let feature_dim = (consts::FFT_SIZE / 2 + 1) as usize;
-    let sp = rsworld::decode_spectral_envelope(
-        &features.mgc,
-        feature_length as i32,
-        consts::SAMPLE_RATE as i32,
-        consts::FFT_SIZE,
-    );
-    let ap = rsworld::decode_aperiodicity(
-        &features.bap,
-        feature_length as i32,
-        consts::SAMPLE_RATE as i32,
-    );
     let vuv: Vec<bool> = features.f0.iter().map(|f0| *f0 != 0.).collect();
     let f0_off: Vec<f64> = features
         .f0
@@ -133,14 +120,28 @@ pub fn run(args: ResamplerArgs) -> Result<()> {
         .iter()
         .map(|i| vuv[(*i as usize).clamp(0, feature_length - 1)])
         .collect();
-    let mut sp_render =
-        interp::interpolate_first_axis(sp, &t_render, interp::InterpolatorType::Akima);
-    let mut ap_render =
-        interp::interpolate_first_axis(ap, &t_render, interp::InterpolatorType::Akima);
+    let mgc_render =
+        interp::interpolate_first_axis(features.mgc, &t_render, interp::InterpolatorType::Akima);
+    let bap_render =
+        interp::interpolate_first_axis(features.bap, &t_render, interp::InterpolatorType::Akima);
     let t_sec: Vec<f64> = util::arange(render_length as i32)
         .iter()
         .map(|x| x / fps)
         .collect();
+
+    println!("Decoding WORLD features.");
+
+    let mut sp_render = rsworld::decode_spectral_envelope(
+        &mgc_render,
+        render_length as i32,
+        consts::SAMPLE_RATE as i32,
+        consts::FFT_SIZE,
+    );
+    let mut ap_render = rsworld::decode_aperiodicity(
+        &bap_render,
+        render_length as i32,
+        consts::SAMPLE_RATE as i32,
+    );
 
     println!("Interpreting pitchbend.");
     println!("Checking flags.");
