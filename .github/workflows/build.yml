@@ -128,8 +128,12 @@ jobs:
           draft: false
           make_latest: true
           files: |
-            win/straycat-rs.exe
-            mac-silicon/straycat-rs
+            win-x64/straycat-rs.exe
+            win-arm64/straycat-rs.exe
+            osx-x64/straycat-rs
+            osx-arm64/straycat-rs
+            linux-x64/straycat-rs
+            linux-arm64/straycat-rs
           name: 'straycat-rs ${{ steps.getversion.outputs.rawVersion }}'
           tag_name: '${{ steps.getversion.outputs.releaseVersion }}'
           body: |
