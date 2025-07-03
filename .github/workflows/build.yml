@@ -97,8 +97,10 @@ jobs:
             # if windows, executable is straycat-rs.exe, otherwise straycat-rs
             if [[ $arch == "win"* ]]; then
               file="${arch}/straycat-rs.exe"
+              cp file "straycat-rs-${arch}.exe"
             else
               file="${arch}/straycat-rs"
+              cp file "straycat-rs-${arch}"
             fi
             echo "${arch}_SHA1=$(shasum -a 1 "$file" | awk '{ print $1 }')" >> "$GITHUB_OUTPUT"
             echo "${arch}_SHA256=$(shasum -a 256 "$file" | awk '{ print $1 }')" >> "$GITHUB_OUTPUT"
@@ -129,12 +131,12 @@ jobs:
           draft: false
           make_latest: true
           files: |
-            win-x64/straycat-rs.exe
-            win-arm64/straycat-rs.exe
-            osx-x64/straycat-rs
-            osx-arm64/straycat-rs
-            linux-x64/straycat-rs
-            linux-arm64/straycat-rs
+            straycat-rs-win-x64.exe
+            straycat-rs-win-arm64.exe
+            straycat-rs-osx-x64
+            straycat-rs-osx-arm64
+            straycat-rs-linux-x64
+            straycat-rs-linux-arm64
           name: 'straycat-rs ${{ steps.getversion.outputs.rawVersion }}'
           tag_name: '${{ steps.getversion.outputs.releaseVersion }}'
           body: |
