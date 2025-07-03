@@ -60,14 +60,14 @@ jobs:
         if: matrix.os.os == 'windows'
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.os.runs-on }}
+          name: ${{ matrix.os.arch }}
           path: target/release/straycat-rs.exe
       
       - name: Store artifacts (posix)
         if: matrix.os.os != 'windows'
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.os.runs-on }}
+          name: ${{ matrix.os.arch }}
           path: target/release/straycat-rs
 
   deploy:
