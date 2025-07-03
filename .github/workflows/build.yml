@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - ci-dev
+  workflow_dispatch: {}
 
 env:
   WINSDK_VERSION: 22621
@@ -23,8 +24,8 @@ jobs:
           sdk-version: ${{ env.WINSDK_VERSION }}
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
-      - name: Copy CI build script
-        run: (Get-Content .\build.rs) -replace '26100', '${{ env.WINSDK_VERSION }}' | Set-Content .\build.rs
+      - name: Enter visual studio dev console 
+        uses: ilammy/msvc-dev-cmd@v1
       - name: Build Straycat
         run: cargo build --release
       - name: Store artifacts
