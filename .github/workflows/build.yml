@@ -99,6 +99,7 @@ jobs:
               file="${arch}/straycat-rs.exe"
             else
               file="${arch}/straycat-rs"
+            fi
             echo "${arch}_SHA1=$(shasum -a 1 "$file" | awk '{ print $1 }')" >> "$GITHUB_OUTPUT"
             echo "${arch}_SHA256=$(shasum -a 256 "$file" | awk '{ print $1 }')" >> "$GITHUB_OUTPUT"
             echo "${arch}_SHA384=$(shasum -a 384 "$file" | awk '{ print $1 }')" >> "$GITHUB_OUTPUT"
